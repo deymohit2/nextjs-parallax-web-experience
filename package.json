@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cd olipop-nextjs && npm run dev",
-    "build": "cd olipop-nextjs && npm install && npm run build",
-    "start": "cd olipop-nextjs && npm run start",
-    "lint": "cd olipop-nextjs && npm run lint",
-    "postinstall": "cd olipop-nextjs && npm install"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
