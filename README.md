@@ -1,7 +1,7 @@
-# 🏷️ Olipop Next.js Website Migration
+# 🏷️ High-Performance Next.js Parallax Web Experience
 
 ## 🧾 Executive Summary
-This project documents the successful modernization of the Olipop brand website from a static HTML/CSS codebase to a high-performance Next.js 16 application. The project achieved all core objectives, including the implementation of a complex 200-frame scroll-driven parallax animation system, seamless variant switching logic with state management, and a highly responsive component-based architecture. The new system leverages React 19, TypeScript for reliability, and Tailwind CSS v4 for modern styling, delivering a premium, interactive user experience that maintains the original design's aesthetic fidelity while significantly improving maintainability and scalability.
+This project documents the successful modernization of the Olipop brand website into a Next.js 16 application. The project achieved all core objectives, including the implementation of a complex 200-frame scroll-driven parallax animation system, seamless variant switching logic with state management, and a highly responsive component-based architecture. The new system leverages React 19, TypeScript for reliability, and Tailwind CSS v4 for modern styling, delivering a premium, interactive user experience that maintains the original design's aesthetic fidelity while significantly improving maintainability and scalability.
 
 ## 📑 Table of Contents
 - [🧩 Project Overview](#-project-overview)
