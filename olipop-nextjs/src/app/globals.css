@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --text-primary: #f4f4f4;
+  --text-secondary: #a0a0a0;
+  --accent-color: #ffffff;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #f4f4f4;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@utility fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+@utility fade-in {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}

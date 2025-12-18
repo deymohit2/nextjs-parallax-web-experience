@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olipop Website - Technical Project Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: #1a1a1a;
+            margin-top: 1.5em;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 5px;
+            margin-top: 2em;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            color: #d63384;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+        }
+
+        pre code {
+            background-color: transparent;
+            color: #333;
+            padding: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+
+        .emoji {
+            margin-right: 8px;
+        }
+
+        .status-pass {
+            color: #198754;
+            font-weight: bold;
+        }
+
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: #0d6efd;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .diagram {
+            font-family: monospace;
+            white-space: pre;
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>🏷️ Project Title: Olipop Next.js Website Migration</h1>
+
+        <section id="executive-summary">
+            <h2>🧾 Executive Summary</h2>
+            <p>
+                This report documents the successful modernization of the Olipop brand website from a static HTML/CSS
+                codebase to a high-performance Next.js 16 application.
+                The project achieved all core objectives, including the implementation of a complex 200-frame
+                scroll-driven parallax animation system, seamless variant switching logic with state management,
+                and a highly responsive component-based architecture. The new system leverages React 19, TypeScript for
+                reliability, and Tailwind CSS v4 for modern styling,
+                delivering a premium, interactive user experience that maintains the original design's aesthetic
+                fidelity while significantly improving maintainability and scalability.
+            </p>
+        </section>
+
+        <section id="toc" class="toc">
+            <h2>📑 Table of Contents</h2>
+            <ul>
+                <li><a href="#overview">🧩 Project Overview</a></li>
+                <li><a href="#objectives">🎯 Objectives & Goals</a></li>
+                <li><a href="#acceptance">✅ Acceptance Criteria</a></li>
+                <li><a href="#prerequisites">💻 Prerequisites</a></li>
+                <li><a href="#installation">⚙️ Installation & Setup</a></li>
+                <li><a href="#api">🔗 API Documentation</a></li>
+                <li><a href="#ui">🖥️ UI / Frontend</a></li>
+                <li><a href="#status">🔢 Status Codes</a></li>
+                <li><a href="#features">🚀 Features</a></li>
+                <li><a href="#tech-stack">🧱 Tech Stack & Architecture</a></li>
+                <li><a href="#workflow">🛠️ Workflow & Implementation</a></li>
+                <li><a href="#testing">🧪 Testing & Validation</a></li>
+                <li><a href="#verification-tools">🧰 Verification Testing Tools</a></li>
+                <li><a href="#troubleshooting">🧯 Troubleshooting & Debugging</a></li>
+                <li><a href="#security">🔒 Security & Secrets</a></li>
+                <li><a href="#deployment">☁️ Deployment</a></li>
+                <li><a href="#cheat-sheet">⚡ Quick-Start Cheat Sheet</a></li>
+                <li><a href="#usage">🧾 Usage Notes</a></li>
+                <li><a href="#performance">🧠 Performance & Optimization</a></li>
+                <li><a href="#enhancements">🌟 Enhancements & Features</a></li>
+                <li><a href="#maintenance">🧩 Maintenance & Future Work</a></li>
+                <li><a href="#achievements">🏆 Key Achievements</a></li>
+                <li><a href="#architecture">🧮 High-Level Architecture</a></li>
+                <li><a href="#folder-structure">🗂️ Folder Structure</a></li>
+                <li><a href="#demo">🧭 How to Demonstrate Live</a></li>
+                <li><a href="#summary">💡 Summary, Closure & Compliance</a></li>
+            </ul>
+        </section>
+
+        <section id="overview">
+            <h2>🧩 Project Overview</h2>
+            <p>
+                The Olipop Next.js project is a rebuild of the customer-facing landing page. It features a sophisticated
+                hero section with a scroll-controlled 3D product rotation (parallax),
+                interactive flavor variant switching, and modular content sections (Reviews, Ingredients, Nutrition).
+                The architecture is designed to be "production-ready," utilizing
+                Server Components where possible and Client Components for interactivity.
+            </p>
+        </section>
+
+        <section id="objectives">
+            <h2>🎯 Objectives & Goals</h2>
+            <ul>
+                <li><strong>Modernization:</strong> Migrate legacy HTML/JS to Next.js 16 App Router architecture.</li>
+                <li><strong>Performance:</strong> Optimize asset loading (specifically heavy image sequences) and
+                    improve Core Web Vitals.</li>
+                <li><strong>Type Safety:</strong> Implement strict TypeScript across all components and hooks.</li>
+                <li><strong>Maintainability:</strong> Componentize the UI using React enabling easier updates and AB
+                    testing.</li>
+                <li><strong>UX Excellence:</strong> Replicate and smooth out the detailed parallax interactions and
+                    animations.</li>
+            </ul>
+        </section>
+
+        <section id="acceptance">
+            <h2>✅ Acceptance Criteria</h2>
+            <ul>
+                <li>Hero animation uses exactly 200 frames for optimal load/quality balance.</li>
+                <li>Hero section stays fixed (z-0) while content sections scroll over it (z-10).</li>
+                <li>Variant switching (Cherry, Grape, Lemon) updates all relevant UI elements (Hero image, Colors,
+                    Product section image) instantly.</li>
+                <li>Buttons and layout are fully responsive down to mobile devices (375px width).</li>
+                <li>No hydration errors or console warnings in the final build.</li>
+            </ul>
+        </section>
+
+        <section id="prerequisites">
+            <h2>💻 Prerequisites</h2>
+            <ul>
+                <li><strong>Node.js:</strong> Version 20.x or higher</li>
+                <li><strong>Package Manager:</strong> npm (v10+) or pnpm</li>
+                <li><strong>Git:</strong> For version control</li>
+                <li><strong>OS:</strong> Windows, macOS, or Linux</li>
+            </ul>
+        </section>
+
+        <section id="installation">
+            <h2>⚙️ Installation & Setup</h2>
+            <ol>
+                <li>
+                    <strong>Clone the repository:</strong>
+                    <pre><code>git clone [repository-url]
+cd olipop-nextjs</code></pre>
+                </li>
+                <li>
+                    <strong>Install dependencies:</strong>
+                    <pre><code>npm install</code></pre>
+                </li>
+                <li>
+                    <strong>Run development server:</strong>
+                    <pre><code>npm run dev</code></pre>
+                </li>
+                <li>
+                    <strong>Build for production:</strong>
+                    <pre><code>npm run build
+npm start</code></pre>
+                </li>
+            </ol>
+        </section>
+
+        <section id="api">
+            <h2>🔗 API Documentation</h2>
+            <p><em>Note: This project is primarily a frontend application. However, it interfaces with external storage
+                    for assets.</em></p>
+            <ul>
+                <li><strong>Asset Source:</strong> Supabase Object Storage</li>
+                <li><strong>Endpoint Pattern:</strong> <code>[BaseUrl]/[FrameNumber].webp</code></li>
+                <li><strong>Hook Interface (<code>useImagePreloader</code>):</strong>
+                    <ul>
+                        <li>Input: <code>variant: Variant</code></li>
+                        <li>Output: <code>{ frames: HTMLImageElement[], isLoading: boolean, progress: number }</code>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="ui">
+            <h2>🖥️ UI / Frontend</h2>
+            <h3>Structure & State Flow</h3>
+            <ul>
+                <li><strong>Global State:</strong> <code>VariantContext</code> wraps the application layout, managing
+                    the `currentVariant` state globally.</li>
+                <li><strong>Hero Component:</strong> <code>ParallaxHero</code> consumes context to display the correct
+                    image sequence. It controls the window scroll interaction.</li>
+                <li><strong>Content Sections:</strong> <code>ProductSection</code>, <code>IngredientsSection</code>,
+                    etc., consume context to update content dynamically based on the selected flavor.</li>
+            </ul>
+            <h3>Key Components</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Path</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ParallaxHero</td>
+                        <td>src/components/hero/ParallaxHero.tsx</td>
+                        <td>Manages the scroll-driven frame animation (400vh height).</td>
+                    </tr>
+                    <tr>
+                        <td>VariantSwitcher</td>
+                        <td>src/components/hero/VariantSwitcher.tsx</td>
+                        <td>Handles user input for changing flavors.</td>
+                    </tr>
+                    <tr>
+                        <td>ProductSection</td>
+                        <td>src/components/sections/ProductSection.tsx</td>
+                        <td>Displays "Our Story" with dynamic product imagery.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="status">
+            <h2>🔢 Status Codes</h2>
+            <p>Application logic handles the following internal states:</p>
+            <ul>
+                <li><strong>Loading (0-99%):</strong> <code>isLoading: true</code> in <code>useImagePreloader</code>.
+                    Blocks interaction.</li>
+                <li><strong>Ready (100%):</strong> <code>isLoading: false</code>. Unlocks scroll and reveals interface.
+                </li>
+                <li><strong>Error:</strong> Failed asset loads trigger console errors but attempt to degrade gracefully.
+                </li>
+            </ul>
+        </section>
+
+        <section id="features">
+            <h2>🚀 Features</h2>
+            <ul>
+                <li><strong>3D Parallax Scroll:</strong> Smooth scrubbing through 200 high-res frames as the user
+                    scrolls.</li>
+                <li><strong>Dynamic Theme Engine:</strong> Background colors and asset paths switch instantly based on
+                    variant selection.</li>
+                <li><strong>Asset Preloading:</strong> Custom hook ensures smooth playback by pre-fetching image
+                    sequences.</li>
+                <li><strong>Responsive Design:</strong> Mobile-first approach using Tailwind CSS v4 breakpoints.</li>
+                <li><strong>Component Encapsulation:</strong> ShadCN UI primitives used for standard elements like
+                    Accordion and Separators.</li>
+            </ul>
+        </section>
+
+        <section id="tech-stack">
+            <h2>🧱 Tech Stack & Architecture</h2>
+            <ul>
+                <li><strong>Framework:</strong> Next.js 16 (App Router)</li>
+                <li><strong>Language:</strong> TypeScript 5.x</li>
+                <li><strong>UI Library:</strong> React 19.2</li>
+                <li><strong>Styling:</strong> Tailwind CSS v4 + PostCSS</li>
+                <li><strong>Animation:</strong> Framer Motion + Native Scroll Events</li>
+                <li><strong>Validation:</strong> Zod</li>
+                <li><strong>Assets:</strong> WebP sequences hosted on Supabase</li>
+            </ul>
+            <h3>Component Architecture Diagram</h3>
+            <div class="diagram">
+                RootLayout (VariantProvider)
+                │
+                ├── Navigation (Fixed)
+                │
+                ├── Page (Home)
+                │ │
+                │ ├── LoadingScreen (Overlay)
+                │ │
+                │ ├── ParallaxHero (h-400vh, z-0)
+                │ │ ├── ParallaxBackground (Frames)
+                │ │ └── HeroContent (z-1)
+                │ │ ├── Header/Buttons
+                │ │ └── VariantSwitcher
+                │ │
+                │ ├── ProductSection (z-10)
+                │ ├── IngredientsSection (z-10)
+                │ ├── NutritionSection (z-10)
+                │ ├── ReviewsSection (z-10)
+                │ ├── FAQSection (z-10)
+                │ └── CTASection (z-10)
+                │
+                └── Footer
+            </div>
+        </section>
+
+        <section id="workflow">
+            <h2>🛠️ Workflow & Implementation</h2>
+            <ol>
+                <li><strong>Setup:</strong> Initialized Next.js project with TypeScript and Tailwind CSS.</li>
+                <li><strong>Data Modeling:</strong> Defined <code>Variant</code> types and configured asset sources in
+                    <code>variants.ts</code>.</li>
+                <li><strong>Core Logic:</strong> Implemented <code>useImagePreloader</code> to handle heavy asset
+                    fetching and <code>useParallax</code> for scroll calculations.</li>
+                <li><strong>Component Construction:</strong> Built modular sections (Hero, Product, FAQ) using ShadCN UI
+                    primitives.</li>
+                <li><strong>State Integration:</strong> Created <code>VariantContext</code> to link the Hero switcher
+                    with downstream sections.</li>
+                <li><strong>Refinement:</strong> Adjusted Parallax timing (Extended height to 400vh) to fix overlap
+                    issues.</li>
+                <li><strong>Optimization:</strong> Reduced frame count from 240 to 200 for better performance.</li>
+            </ol>
+        </section>
+
+        <section id="testing">
+            <h2>🧪 Testing & Validation</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Area</th>
+                        <th>Command / Action</th>
+                        <th>Expected Output</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>T-01</td>
+                        <td>Core</td>
+                        <td><code>npm run dev</code></td>
+                        <td>Server starts on port 3000 without error.</td>
+                        <td><span class="status-pass">PASS</span></td>
+                    </tr>
+                    <tr>
+                        <td>T-02</td>
+                        <td>Parallax</td>
+                        <td>Scroll down 3000px</td>
+                        <td>Animation plays smoothly through frame 200 before content covers it.</td>
+                        <td><span class="status-pass">PASS</span></td>
+                    </tr>
+                    <tr>
+                        <td>T-03</td>
+                        <td>Responsiveness</td>
+                        <td>Resize width to 375px</td>
+                        <td>Buttons stack vertically, layout adjusts to single column.</td>
+                        <td><span class="status-pass">PASS</span></td>
+                    </tr>
+                    <tr>
+                        <td>T-04</td>
+                        <td>State Management</td>
+                        <td>Click "Next" variant</td>
+                        <td>Hero color, hero image, and "Our Story" product image update simultaneously.</td>
+                        <td><span class="status-pass">PASS</span></td>
+                    </tr>
+                    <tr>
+                        <td>T-05</td>
+                        <td>Production Build</td>
+                        <td><code>npm run build</code></td>
+                        <td>Build completes with valid static generation and no lint errors.</td>
+                        <td><span class="status-pass">PASS</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="verification-tools">
+            <h2>🧰 Verification Testing Tools</h2>
+            <p>The following tools were used to verify the integrity of the implementation:</p>
+            <ul>
+                <li><strong>ESLint:</strong> Static code analysis for finding problems.</li>
+                <li><strong>TypeScript Compiler (tsc):</strong> Type checking verification.</li>
+                <li><strong>Browser DevTools:</strong> Network throttling and z-index visualizer.</li>
+                <li><strong>Browser Subagents:</strong> Automated navigation and DOM inspection agents used during
+                    development.</li>
+            </ul>
+        </section>
+
+        <section id="troubleshooting">
+            <h2>🧯 Troubleshooting & Debugging</h2>
+            <ul>
+                <li><strong>Issue: Hydration Mismatch.</strong> <em>Fix:</em> Ensured no browser-extension specific
+                    attributes were interfering, and synchronized server/client rendering logic.</li>
+                <li><strong>Issue: Next Section Overlap.</strong> <em>Fix:</em> Increased Hero section height from 300vh
+                    to 400vh to accommodate the full 200-frame animation sequence.</li>
+                <li><strong>Issue: Missing Images.</strong> <em>Fix:</em> Verified Supabase URLs and configured
+                    <code>next.config.ts</code> (if needed for external domains, though basic <code>img</code> tags were
+                    used for raw frames).</li>
+            </ul>
+        </section>
+
+        <section id="security">
+            <h2>🔒 Security & Secrets</h2>
+            <ul>
+                <li>No sensitive API keys are exposed in the client bundle.</li>
+                <li>Asset URLs are public and read-only.</li>
+                <li><code>next.config.ts</code> is configured to be secure by default.</li>
+            </ul>
+        </section>
+
+        <section id="deployment">
+            <h2>☁️ Deployment (Vercel)</h2>
+            <p>The project is optimized for Vercel deployment:</p>
+            <ol>
+                <li>Push code to GitHub.</li>
+                <li>Import project in Vercel Dashboard.</li>
+                <li>Framework Preset: <strong>Next.js</strong>.</li>
+                <li>Build Command: <code>next build</code>.</li>
+                <li>Install Command: <code>npm install</code>.</li>
+                <li>Click <strong>Deploy</strong>.</li>
+            </ol>
+        </section>
+
+        <section id="cheat-sheet">
+            <h2>⚡ Quick-Start Cheat Sheet</h2>
+            <pre><code># Start Dev Server
+npm run dev
+
+# Build for Prod
+npm run build
+
+# Lint Code
+npm run lint</code></pre>
+        </section>
+
+        <section id="usage">
+            <h2>🧾 Usage Notes</h2>
+            <ul>
+                <li>Ensure a stable internet connection for asset loading (images are fetched from remote storage).</li>
+                <li>The parallax effect relies on scroll events; extensive throttling is applied for performance, but
+                    very fast scrolling may skip frames visually.</li>
+            </ul>
+        </section>
+
+        <section id="performance">
+            <h2>🧠 Performance & Optimization</h2>
+            <ul>
+                <li><strong>Lazy Loading:</strong> Content sections below the fold are standard React components.</li>
+                <li><strong>Image Optimization:</strong> WebP format used for all animation frames.</li>
+                <li><strong>Memory Management:</strong> <code>useImagePreloader</code> manages the buffer to prevent
+                    memory leaks, though caching is leveraged for smoothness.</li>
+                <li><strong>Code Splitting:</strong> Next.js App Router automatically splits routes and components.</li>
+            </ul>
+        </section>
+
+        <section id="enhancements">
+            <h2>🌟 Enhancements & Features</h2>
+            <ul>
+                <li><strong>Context API:</strong> Introduced <code>VariantContext</code> to decouple component
+                    communication.</li>
+                <li><strong>Z-Index Layering:</strong> Architectural change to allow content to "slide over" the fixed
+                    hero background.</li>
+            </ul>
+        </section>
+
+        <section id="maintenance">
+            <h2>🧩 Maintenance & Future Work</h2>
+            <ul>
+                <li><strong>Future:</strong> Add more flavors by simply updating <code>variants.ts</code>.</li>
+                <li><strong>Future:</strong> Implement a backend CMS for dynamic text updates.</li>
+                <li><strong>Maintenance:</strong> Regularly update `npm` dependencies to patch security vulnerabilities.
+                </li>
+            </ul>
+        </section>
+
+        <section id="achievements">
+            <h2>🏆 Key Achievements</h2>
+            <p>Successfully transformed a static concept into a scalable, interactive application. Maintained high
+                visual fidelity while introducing strict engineering practices (Type safety, CI/CD readiness).</p>
+        </section>
+
+        <section id="architecture">
+            <h2>🧮 High-Level Architecture</h2>
+            <p>The application follows a standard Next.js App Router topology. `page.tsx` serves as the composition root
+                for the homepage, injecting the `ParallaxHero` and subsequent `sections`. Data flows unidirectionally
+                from the `variants` configuration file into the state context, which then distributes it to subscribers.
+            </p>
+        </section>
+
+        <section id="folder-structure">
+            <h2>🗂️ Folder Structure (Tree)</h2>
+            <pre><code>
+olipop-nextjs/
+├── src/
+│   ├── app/
+│   │   ├── globals.css         # Tailwind & Global Styles
+│   │   ├── layout.tsx          # Root Layout & Providers
+│   │   └── page.tsx            # Composition Root
+│   ├── components/
+│   │   ├── hero/               # Hero & Parallax Components
+│   │   ├── layout/             # Header & Footer
+│   │   ├── sections/           # Modular Page Sections
+│   │   └── ui/                 # Reusable UI Primitives (ShadCN)
+│   ├── contexts/               # React Context Definitions
+│   ├── hooks/                  # Custom Business Logic Hooks
+│   ├── lib/                    # Utilities & Constants
+│   └── types/                  # TypeScript Interfaces
+├── public/                     # Static Assets
+└── package.json                # Project Manifest
+            </code></pre>
+        </section>
+
+        <section id="demo">
+            <h2>🧭 How to Demonstrate Live</h2>
+            <p>To showcase the project features in a live demo:</p>
+            <ol>
+                <li>Open terminal in <code>olipop-nextjs</code> directory.</li>
+                <li>Run <code>npm run dev</code>.</li>
+                <li>Open <code>http://localhost:3000</code>.</li>
+                <li><strong>Action 1:</strong> Reload page to show Loading Screen.</li>
+                <li><strong>Action 2:</strong> Scroll slowly to demonstrate Parallax and Layering.</li>
+                <li><strong>Action 3:</strong> At the top, click "Next" to switch variants - point out the color and
+                    image change.</li>
+                <li><strong>Action 4:</strong> Scroll down to "Our Story" - point out the matching product bottle.</li>
+                <li><strong>Action 5:</strong> Open DevTools (F12), toggle Device Toolbar, set to "iPhone 12", and show
+                    responsive layout.</li>
+            </ol>
+        </section>
+
+        <section id="summary">
+            <h2>💡 Summary, Closure & Compliance</h2>
+            <p>
+                This report confirms that the Olipop Next.js Website project meets all specified technical requirements.
+                The system is robust, performant, and ready for deployment. All code generated adheres to modern web
+                standards and best practices.
+            </p>
+        </section>
+
+    </div>
+</body>
+
+</html>

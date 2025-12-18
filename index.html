@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olipop - A New Kind of Soda</title>
+    <meta name="description" content="Olipop is a modern functional soda brand inspired by classic flavors but made with better ingredients. Discover our delicious Cherry, Grape, and Lemon Ginger sodas.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <h1 class="loader-logo">OLIPOP</h1>
+            <div class="loader-bar-container">
+                <div id="loader-bar" class="loader-bar"></div>
+            </div>
+            <p id="loader-percentage" class="loader-percentage">0%</p>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">OLIPOP</div>
+            <ul class="nav-links">
+                <li><a href="#product" class="nav-link">Product</a></li>
+                <li><a href="#ingredients" class="nav-link">Ingredients</a></li>
+                <li><a href="#nutrition" class="nav-link">Nutrition</a></li>
+                <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <!-- Parallax Background -->
+        <div id="parallax-container" class="parallax-container">
+            <img id="parallax-image" class="parallax-image" src="" alt="Olipop Soda">
+        </div>
+
+        <!-- Hero Content Overlay -->
+        <div class="hero-overlay">
+            <!-- Left Content -->
+            <div class="hero-left">
+                <div class="hero-brand">OLIPOP</div>
+                <h1 id="drink-name" class="hero-name">CHERRY</h1>
+                <p id="drink-subtitle" class="hero-subtitle">SODA</p>
+                <p id="drink-description" class="hero-description">A modern take on a classic soda with a perfect blend of sweet and tart, full of nostalgic flavor.</p>
+                <div class="hero-cta">
+                    <button class="cta-btn cta-transparent">ADD TO</button>
+                    <button class="cta-btn cta-solid">CART</button>
+                </div>
+            </div>
+
+            <!-- Right Variant Navigation -->
+            <div class="hero-right">
+                <div class="variant-number" id="variant-number">01</div>
+                <div class="variant-nav">
+                    <button id="prev-variant" class="variant-btn">
+                        <span class="variant-arrow">↑</span>
+                        <span class="variant-label">PREV</span>
+                    </button>
+                    <div class="variant-divider"></div>
+                    <button id="next-variant" class="variant-btn">
+                        <span class="variant-label">NEXT</span>
+                        <span class="variant-arrow">↓</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bottom Social Icons -->
+            <div class="hero-social">
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter" class="social-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram" class="social-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                </a>
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="social-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section id="product" class="section product-section">
+        <div class="container">
+            <h2 class="section-title">A New Kind of Soda</h2>
+            <div class="product-grid">
+                <div class="product-content">
+                    <h3>Our Story</h3>
+                    <p>Olipop is a modern functional soda brand inspired by classic flavors but made with better ingredients. We're bringing back the nostalgia of your favorite childhood sodas, but with a healthy twist that supports your digestive health.</p>
+                    <p>Each can is crafted with plant fiber, prebiotics, and botanicals to create a delicious soda that's actually good for you. No artificial sweeteners, no high-fructose corn syrup – just real ingredients and real flavor.</p>
+                </div>
+                <div class="product-image">
+                    <img src="assets/grape-product.png" alt="Olipop Grape Soda" class="product-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section id="ingredients" class="section ingredients-section">
+        <div class="container">
+            <h2 class="section-title">Ingredients & Benefits</h2>
+            <div class="ingredients-grid">
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">🌿</div>
+                    <h3>Plant Fiber</h3>
+                    <p>9g of fiber from chicory root, Jerusalem artichoke, and cassava to support digestive health</p>
+                </div>
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">🦠</div>
+                    <h3>Prebiotics</h3>
+                    <p>Nourishes the good bacteria in your gut for optimal microbiome health</p>
+                </div>
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">🍃</div>
+                    <h3>Botanicals</h3>
+                    <p>Natural extracts including marshmallow root, calendula, and kudzu root</p>
+                </div>
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">🍯</div>
+                    <h3>Natural Sweeteners</h3>
+                    <p>Low sugar (2-5g) using cassava syrup and stevia leaf extract</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutrition Section -->
+    <section id="nutrition" class="section nutrition-section">
+        <div class="container">
+            <h2 class="section-title">Nutrition Facts</h2>
+            <div class="nutrition-label">
+                <div class="nutrition-header">
+                    <h3>Nutrition Facts</h3>
+                    <p class="serving-size">Serving Size: 1 Can (12 fl oz)</p>
+                </div>
+                <div class="nutrition-divider thick"></div>
+                <div class="nutrition-row main">
+                    <span><strong>Calories</strong></span>
+                    <span><strong>35</strong></span>
+                </div>
+                <div class="nutrition-divider thin"></div>
+                <div class="nutrition-row">
+                    <span>Total Fat</span>
+                    <span>0g</span>
+                </div>
+                <div class="nutrition-row">
+                    <span>Sodium</span>
+                    <span>30mg</span>
+                </div>
+                <div class="nutrition-row">
+                    <span>Total Carbohydrate</span>
+                    <span>16g</span>
+                </div>
+                <div class="nutrition-row indent">
+                    <span>Dietary Fiber</span>
+                    <span>9g</span>
+                </div>
+                <div class="nutrition-row indent">
+                    <span>Total Sugars</span>
+                    <span>2-5g</span>
+                </div>
+                <div class="nutrition-divider thin"></div>
+                <div class="nutrition-footer">
+                    <p>* Percent Daily Values are based on a 2,000 calorie diet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="section reviews-section">
+        <div class="container">
+            <h2 class="section-title">What People Are Saying</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Finally, a soda I can feel good about drinking! The Cherry flavor is absolutely delicious and tastes just like the classic soda I grew up with."</p>
+                    <p class="review-author">— Sarah M.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"As someone who's been trying to cut back on sugar, Olipop is a game-changer. Great taste, low sugar, and it actually helps my digestion!"</p>
+                    <p class="review-author">— James T.</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"The Grape flavor is my absolute favorite. It's become my go-to afternoon pick-me-up. Love that it's made with real ingredients!"</p>
+                    <p class="review-author">— Maria L.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What makes Olipop different from regular soda?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Olipop contains plant fiber, prebiotics, and botanicals that support digestive health. We use natural sweeteners and have only 2-5g of sugar per can, compared to 39g in traditional sodas. Plus, we skip the artificial ingredients and high-fructose corn syrup.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How much fiber is in each can?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Each can of Olipop contains 9 grams of plant fiber, which is about one-third of your daily recommended intake. This fiber comes from sources like chicory root, Jerusalem artichoke, and cassava.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is Olipop safe for kids?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Olipop is made with clean, natural ingredients and is a much healthier alternative to traditional sodas for kids. However, we recommend introducing it gradually due to the high fiber content.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Where can I buy Olipop?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Olipop is available at major retailers including Whole Foods, Target, Kroger, and on our website. Use our store locator to find the nearest retailer carrying your favorite flavors.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What flavors do you offer?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We currently offer Cherry Soda, Grape Soda, and Lemon Ginger Soda, with more exciting flavors coming soon! Each flavor is crafted to taste like the classic sodas you love while delivering functional health benefits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="contact" class="section cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to Try a Better Soda?</h2>
+            <p class="cta-description">Join thousands of people who've made the switch to functional, delicious soda. Your gut will thank you.</p>
+            <div class="cta-buttons">
+                <button class="cta-btn cta-solid large">Shop Now</button>
+                <button class="cta-btn cta-transparent large">Find a Store</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>OLIPOP</h3>
+                    <p>A modern functional soda brand inspired by classic flavors but made with better ingredients.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Store Locator</a></li>
+                        <li><a href="#">Wholesale</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Olipop. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="https://twitter.com" aria-label="Twitter" class="social-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com" aria-label="Instagram" class="social-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                        </svg>
+                    </a>
+                    <a href="https://facebook.com" aria-label="Facebook" class="social-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
