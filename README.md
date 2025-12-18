@@ -58,7 +58,7 @@ The Olipop Next.js project is a rebuild of the customer-facing landing page. It 
 1. **Clone the repository:**
    ```bash
    git clone [repository-url]
-   cd olipop-nextjs
+   cd nextjs-parallax-web-experience
    ```
 
 2. **Install dependencies:**
@@ -231,7 +231,7 @@ The application follows a standard Next.js App Router topology. `page.tsx` serve
 
 ## 🗂️ Folder Structure (Tree)
 ```
-olipop-nextjs/
+nextjs-parallax-web-experience/
 ├── src/
 │   ├── app/
 │   │   ├── globals.css         # Tailwind & Global Styles
@@ -252,7 +252,7 @@ olipop-nextjs/
 
 ## 🧭 How to Demonstrate Live
 To showcase the project features in a live demo:
-1. Open terminal in `olipop-nextjs` directory.
+1. Open terminal in `nextjs-parallax-web-experience` directory.
 2. Run `npm run dev`.
 3. Open `http://localhost:3000`.
 4. **Action 1:** Reload page to show Loading Screen.
