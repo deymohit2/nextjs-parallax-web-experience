@@ -50,12 +50,12 @@ export function ParallaxHero({ variants }: ParallaxHeroProps) {
             <section className="relative w-full h-[400vh]">
                 {/* Fixed Parallax Container - Now with lower z-index to go behind content */}
                 <div
-                    className="fixed top-0 left-0 w-full h-screen z-0"
+                    className="fixed top-0 left-0 w-full h-screen z-0 overflow-hidden"
                     style={{ opacity: heroOpacity }}
                 >
                     {/* Parallax Image */}
                     {scrollEnabled && frames.length > 0 && frames[currentFrameIndex] && (
-                        <div className="relative w-full h-full">
+                        <div className="relative w-full h-full scale-[1.25] lg:scale-100">
                             <Image
                                 src={frames[currentFrameIndex].src}
                                 alt={`${currentVariant.name} Soda`}

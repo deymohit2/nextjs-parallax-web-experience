@@ -12,7 +12,7 @@ interface HeroContentProps {
 export function HeroContent({ variant, isTransitioning }: HeroContentProps) {
     return (
         <>
-            <div className="max-w-[550px] relative">
+            <div className="max-w-[550px] relative px-16 lg:px-0">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={variant.name}
